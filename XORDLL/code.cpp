@@ -44,7 +44,8 @@ Node* deleteEnd(Node* head) {
     curr = next;
     next = XOR(prev, curr->npx);
   }
-  prev->npx = XOR(prev->npx, curr);
+  if (prev)
+    prev->npx = XOR(prev->npx, curr);
   delete curr;
   return head;
 }
@@ -53,7 +54,8 @@ Node* deleteBeg(Node* head) {
   if (!head) 
     return NULL;
   Node* next = XOR(head->npx, NULL);
-  next->npx = XOR(head, next->npx);
+  if (next)
+    next->npx = XOR(head, next->npx);
   delete head;
   return next;
 }
