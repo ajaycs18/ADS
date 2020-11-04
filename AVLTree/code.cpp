@@ -16,7 +16,7 @@ public:
   }
 
   Node* rightRotate() {
-    Node* x = left, *xRight = right;
+    Node* x = left, *xRight = x->right;
     x->right = this;
     left = xRight;
     height = max(getHeight(left), getHeight(right)) + 1; 
